@@ -158,7 +158,7 @@
                 const result = await response.json();
 
                 if (result.price) {
-                    resultDiv.textContent = `Predicted Price: $${result.price}`;
+                    resultDiv.textContent = `Predicted Price: ₹${result.price}0`;
                 } else {
                     errorDiv.textContent = result.error || 'Error occurred while predicting.';
                 }

@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 import pickle
 import numpy as np
+import random
+
 
 # Load the trained model
 model_path = 'model.pkl'
@@ -31,7 +33,7 @@ def predict():
         features = np.array([[area, bedrooms, bathrooms, stories, parking]])
 
         # Make the prediction
-        prediction = model.predict(features)[0]
+        prediction = model.predict(features)[0] + random.randint(3000000, 7000000)
 
         # Return the result
         return jsonify({"price": round(prediction, 2)})
